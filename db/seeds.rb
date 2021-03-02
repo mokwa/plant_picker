@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Plant.destroy_all
+
+puts "creating seeds"
+
+ronaldo = User.create!(first_name: "Ronaldo", last_name: "Goncalves", email: "ronaldo@example.com", password: "123456", address: "SE15 6UJ", city: "london", nickname: "naldo")
+
+tina = User.create!(first_name: "Tina", last_name: "Iuso", email: "tina@example.com", password: "123456", address: "TW2 6NU", city: "london", nickname: "tina")
+
+juliana = User.create!(first_name: "Juliana", last_name: "Mokwa", email: "juliana@example.com", password: "123456", address: "W14 9HP", city: "london", nickname: "jules")
+
+type = Type.create!(name: "others")
+species = Species.create!(name: "others")
+
+Plant.create!(name: "Orchid", description: "nice flower", status: "available", user: ronaldo, type: type, species: species)
+Plant.create!(name: "Rose", description: "nice roses", status: "available", user: ronaldo, type: type, species: species)
+
+Plant.create!(name: "sunflower", description: "nice yellow flower", status: "available", user: tina, type: type, species: species)
+Plant.create!(name: "Ivy", description: "nice ivy plant", status: "available", user: tina, type: type, species: species)
+
+Plant.create!(name: "Tulip", description: "nice tulip flower", status: "available", user: juliana, type: type, species: species)
+Plant.create!(name: "Lily", description: "nice lily flower", status: "available", user: juliana, type: type, species: species)
+
+puts "seeds done!"
