@@ -1,6 +1,5 @@
 class Plant < ApplicationRecord
   belongs_to :type
-  belongs_to :species
   belongs_to :user
   has_many :chatrooms
   has_many :transitions

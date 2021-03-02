@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
 Plant.destroy_all
+User.destroy_all
+Type.destroy_all
 
 puts "creating seeds"
 
@@ -16,16 +17,20 @@ tina = User.create!(first_name: "Tina", last_name: "Iuso", email: "tina@example.
 
 juliana = User.create!(first_name: "Juliana", last_name: "Mokwa", email: "juliana@example.com", password: "123456", address: "W14 9HP", city: "london", nickname: "jules")
 
-type = Type.create!(name: "others")
-species = Species.create!(name: "others")
+types1 = ["Flower", "Trees", "Bulbs", "Cactus", "Succulents", "Climbers", "Conifers", "Ferns", "Herbs", "Roses", "Shrubs", "Bamboos", "Palms", "Others" ]
+types1.each do |type|
+  Type.create!(name: type)
+end
 
-Plant.create!(name: "Orchid", description: "nice flower", status: "available", user: ronaldo, type: type, species: species)
-Plant.create!(name: "Rose", description: "nice roses", status: "available", user: ronaldo, type: type, species: species)
+type = Type.take
 
-Plant.create!(name: "sunflower", description: "nice yellow flower", status: "available", user: tina, type: type, species: species)
-Plant.create!(name: "Ivy", description: "nice ivy plant", status: "available", user: tina, type: type, species: species)
+Plant.create!(name: "Orchid", description: "nice flower", status: "available", user: ronaldo, type: type)
+Plant.create!(name: "Rose", description: "nice roses", status: "available", user: ronaldo, type: type)
 
-Plant.create!(name: "Tulip", description: "nice tulip flower", status: "available", user: juliana, type: type, species: species)
-Plant.create!(name: "Lily", description: "nice lily flower", status: "available", user: juliana, type: type, species: species)
+Plant.create!(name: "sunflower", description: "nice yellow flower", status: "available", user: tina, type: type)
+Plant.create!(name: "Ivy", description: "nice ivy plant", status: "available", user: tina, type: type)
+
+Plant.create!(name: "Tulip", description: "nice tulip flower", status: "available", user: juliana, type: type)
+Plant.create!(name: "Lily", description: "nice lily flower", status: "available", user: juliana, type: type)
 
 puts "seeds done!"

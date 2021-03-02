@@ -9,21 +9,11 @@ class PlantsController < ApplicationController
   def show; end
 
   def new
-    # @species = Species.find(params[:species_id])
-    # @type = Type.find(params[:type_id])
     @plant = Plant.new
   end
 
   def create
     @plant = Plant.new(plant_params)
-
-    @species = Species.find(params[:species_id])
-    @type = Type.find(params[:type_id])
-
-    @plant.species = @species
-    @plant.type = @type
-
-
     @plant.user = current_user
 
     if @plant.save
