@@ -8,4 +8,5 @@ class Plant < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :status, inclusion: { in: %w(available promised traded), message: "%{value} is not a valid status" }
+  has_many_attached :photos
 end
