@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
+    <div class="col-12 col-sm-9">
       <div class="form-login">
       
         <h2>Sign up</h2>
@@ -9,17 +9,30 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :email,
+        <div class="d-flex">
+          <%= f.input :first_name, wrapper_html: { class: "flex-grow-1 mr-3" } %>
+          <%= f.input :last_name, wrapper_html: { class: "flex-grow-1" } %>
+        </div>
+        <div class="d-flex">
+          <%= f.input :address, wrapper_html: { class: "flex-grow-1 mr-3" } %>
+          <%= f.input :city, wrapper_html: { class: "flex-grow-1" } %>
+        </div>
+        <div class="d-flex">
+          <%= f.input :nickname, wrapper_html: { class: "flex-grow-1 mr-3" } %>
+          <%= f.input :email, wrapper_html: { class: "flex-grow-1" },
             required: true,
             autofocus: true,
             input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
+        </div>
+        <div class="d-flex">
+          <%= f.input :password, wrapper_html: { class: "flex-grow-1 mr-3" },
             required: true,
             hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
             input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
+          <%= f.input :password_confirmation, wrapper_html: { class: "flex-grow-1" },
             required: true,
             input_html: { autocomplete: "new-password" } %>
+        </div>
         </div>
 
         <div class="form-actions">
@@ -27,7 +40,9 @@
         </div>
         <% end %>
 
-        <%= render "devise/shared/links" %>
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
         
       </div> 
     </div>
