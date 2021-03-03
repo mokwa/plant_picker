@@ -15,6 +15,8 @@ class PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
+    @plant.status = "available"
+    @plant.type = Type.first
 
     if @plant.save
       redirect_to plant_path(@plant), notice: "Plant added"

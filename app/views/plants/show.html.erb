@@ -4,32 +4,47 @@
   <div class="card-plant p-2">
 
    <!-- The grid: four columns -->
+  
 	<div class="row p-2">
-	  <div class="column">
-	    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
-	  </div>
-	  <div class="column">
-	    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
-	  </div>
-	  <div class="column">
-	    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
-	  </div>
-	  <div class="column">
-	    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
-	  </div>
-   </div>
+	 <div class="col">
+	 	<div class="row">
+	 		<div class="col-md-6 offset-md-3">
+	 	 <div class="block-image">
+	 	 	<% if @plant.photos.attached? %>
+	 	 		<%= cl_image_tag @plant.photos.first.key, id: "expandedImg", height: 500, width: "100%" %>
+	 	 	<% else %>
+                 <img src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" id="expandedImg" style="width:100%">
+	 	 	<% end %> 
 
-<!-- The expanding image container -->
-	<div class="block-image">
-	  <!-- Close the image -->
-	  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+	     </div>
+        </div>
+        </div>
+        <div class="row">
+        	<% if @plant.photos.attached? %>
+        	<% @plant.photos.each do |photo| %>
+        	<div class="col">
+        		<%= cl_image_tag photo.key, class: "image_plant", height: 200 %>
+        	</div>
+        	<%  end %>
+        	<% else %>
 
-	  <!-- Expanded image -->
-	  <img id="expandedImg" style="width:100%">
-
+		  <div class="column">
+		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
+		  </div>
+		  <div class="column">
+		    <img class="image_plant" src="https://images.unsplash.com/photo-1496175362769-08a34d630326?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cm9zZSUyMGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="gardenia" >
+		  </div>
+		  <div class="column">
+		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
+		  </div>
+		  <div class="column">
+		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
+	    </div>
+	    <% end %>
+	   </div>
 	  </div>
-
-	  <div class="card-plant-infos">
+ 
+   	  <div class="card-plant-infos col">
 	    <h2>Plant name</h2>
 	    <p>Product description with <strong>relevant info</strong> only.
 	    <br>
@@ -38,6 +53,11 @@
 	    <a class="btn btn-flat" href="#">Get in touch</a>
 
 	  </div>
+	</div>
+
+<!-- The expanding image container -->
+	
+
 
 	</div>
 </div>
