@@ -3,7 +3,19 @@ class PlantsController < ApplicationController
   before_action :find_plant, only: [:show, :edit, :update, :destroy]
 
   def index
+    #getting all users
+    @users = User.all
     @plants = Plant.all
+
+    #getting the latitude and longitude for each user
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('map_icon.png')
+      }
+    end
   end
 
   def show; end
