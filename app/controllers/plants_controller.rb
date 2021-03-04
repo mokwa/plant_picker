@@ -16,7 +16,6 @@ class PlantsController < ApplicationController
     @plant = Plant.new(plant_params)
     @plant.user = current_user
     @plant.status = "available"
-    @plant.type = Type.first
 
     if @plant.save
       redirect_to plant_path(@plant), notice: "Plant added"
@@ -40,7 +39,7 @@ class PlantsController < ApplicationController
 private
 
   def plant_params
-    params.require(:plant).permit(:name, :description, :status, photos: [])
+    params.require(:plant).permit(:name, :description, :status, :type_id, photos: [])
   end
 
   def find_plant
