@@ -1,1 +1,63 @@
-<h1>yolo</h1>
+
+<div class="show-container mt-4">
+  
+  <div class="card-plant p-2">
+
+   <!-- The grid: four columns -->
+  
+	<div class="row p-2">
+	 <div class="col">
+	 	<div class="row">
+	 		<div class="col-md-6 offset-md-3">
+	 	 <div class="block-image">
+	 	 	<% if @plant.photos.attached? %>
+	 	 		<%= cl_image_tag @plant.photos.first.key, id: "expandedImg", height: 500, width: "100%" %>
+	 	 	<% else %>
+                 <img src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" id="expandedImg" style="width:100%">
+	 	 	<% end %> 
+
+	     </div>
+        </div>
+        </div>
+        <div class="row">
+        	<% if @plant.photos.attached? %>
+        	<% @plant.photos.each do |photo| %>
+        	<div class="col">
+        		<%= cl_image_tag photo.key, class: "image_plant", height: 200 %>
+        	</div>
+        	<%  end %>
+        	<% else %>
+
+		  <div class="column">
+		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
+		  </div>
+		  <div class="column">
+		    <img class="image_plant" src="https://images.unsplash.com/photo-1496175362769-08a34d630326?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cm9zZSUyMGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="gardenia" >
+		  </div>
+		  <div class="column">
+		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
+		  </div>
+		  <div class="column">
+		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia" >
+	    </div>
+	    <% end %>
+	   </div>
+	  </div>
+ 
+   	  <div class="card-plant-infos col">
+	    <h2>Plant name</h2>
+	    <p>Product description with <strong>relevant info</strong> only.
+	    <br>
+	    Eg.Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+
+	    <a class="btn btn-flat" href="#">Get in touch</a>
+
+	  </div>
+	</div>
+
+<!-- The expanding image container -->
+	
+
+
+	</div>
+</div>

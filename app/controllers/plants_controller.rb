@@ -28,6 +28,7 @@ class PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
+    @plant.status = "available"
 
     if @plant.save
       redirect_to plant_path(@plant), notice: "Plant added"
@@ -51,7 +52,7 @@ class PlantsController < ApplicationController
 private
 
   def plant_params
-    params.require(:plant).permit(:name, :description, :status)
+    params.require(:plant).permit(:name, :description, :status, :type_id, photos: [])
   end
 
   def find_plant
