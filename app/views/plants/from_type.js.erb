@@ -1,0 +1,34 @@
+//$("#index-cards-plant").html("<%= escape_javascript(render partial: 'plant_list', locals: { plants: @selected } ) %>");
+$('#index-cards-plant').html("<%=j (render partial: 'plant_list', locals: { plants: @selected })%>")
+
+// function filterType() {
+//   // Get the expanded image
+//   var types = document.querySelectorAll("#filter");
+//   var results = document.querySelectorAll(".index-cards-plant");
+
+
+//   // const (insertPlant) = (data) => {
+//   //   data.Search.forEach((result) => {
+//   //     const plant =
+//   //     results = results.innerHTML.replace(plant);
+//   //   });
+//   // }
+
+//   // const fetchPlants = (query) => {
+//   //   fetch("")
+//   //     .then(response => response.json())
+//   //     .then(insertPlant);
+//   // }
+
+
+//   types.forEach(type => {
+//     type.addEventListener("click", (event) => {
+//       //fetchPlants(query);
+//       console.log(type.innerHTML);
+
+//     });
+//   });
+
+// }
+
+//export { filterType }

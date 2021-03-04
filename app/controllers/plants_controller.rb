@@ -49,6 +49,13 @@ class PlantsController < ApplicationController
     redirect_to plants_path
   end
 
+  def from_type
+    @plants = Plant.joins(:type).where(type_id: params[:type_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
 private
 
   def plant_params

@@ -6,40 +6,29 @@
   </div>
 </div>
 
-<div class="container d-flex flex-row  my-4">
-  <div class="filter-plant">
-    <div class="filter_by">
-      <h3>Filter by</h3>
-      <ul>
-          <li>All</li>
-          <% @types.each do |type| %>
-            <li><%= type.name %></li>
-          <% end %>
-      </ul>
-    </div>
-  </div>
+<div class="container">
+  <div class="index-grid">
+    <div class="index-filter-plant">
+      <div class="index-filter-by">
+        <h3>Filter by</h3>
+        <ul>
+            <li>All</li>
+            <% @types.each do |type| %>
 
-  <div class="container">
-    <div class="search-plant">Search</div>
-    <div class="row">
-      <% @plants.each do |plant| %>
-        <div class="col-lg-4">
-          <div class="card mt-4">
-            <% if plant.photos.attached? %>
-              <%= cl_image_tag plant.photos.first.key, class:'card-img-top' %>
-            <% else %>
-              <img src="https://static.wixstatic.com/media/f61af8_0e1d112d72604aae9e506c5919bd1696~mv2_d_2433_2987_s_4_2.png" />
+             <li id="filter"> <%= link_to type.name, fetch_plants_path(type_id: type.id), remote: true %></li>
+
             <% end %>
+        </ul>
+      </div>
+    </div>
 
-            <div class="card-body">
-              <h2 class="card-title"><%= plant.name %></h2>
-              <%= link_to "Details", plant %>
-            </div>
-          </div>
-        </div>
-
-      <% end %>
+    <div class="container">
+      <div id="index-cards-plant" class="index-cards-plant">
+        <%= render partial: 'plant_list', locals: { plants: @plants }  %>
+      </div>
     </div>
   </div>
+
+
 </div>
 
