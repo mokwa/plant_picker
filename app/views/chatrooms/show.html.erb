@@ -1,3 +1,4 @@
+<div class="container mt-4">
 <h1>#<%= @chatroom.name %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
@@ -9,4 +10,9 @@
       <p><%= message.content %></p>
     </div>
   <% end %>
+</div>
+
+<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+<% end %>
 </div>
