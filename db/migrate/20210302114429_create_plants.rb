@@ -5,7 +5,6 @@ class CreatePlants < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :status
       t.references :type, null: false, foreign_key: true
-      t.references :species, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
