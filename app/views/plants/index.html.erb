@@ -1,7 +1,49 @@
-
+<div class="container mt-4">
+  <h1>Find a picker close to you!</h1>
   <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+   data-markers="<%= @markers.to_json %>"
+   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+</div>
+
+
+<div class="container d-flex flex-row  my-4">
+  <div class="filter-plant">
+    <div class="filter_by">
+      <h3>Filter by</h3>
+      <ul>
+          <li>All</li>
+        <% @types.each do |type| %>
+          <li><%= type.name %></li>
+        <% end %>
+      </ul>
+
+    </div>
   </div>
+  <div class="container">
+    <div class="search-plant">Search</div>
+    <div class="cards-plant">
+      <% @plants.each do |plant| %>
+
+        <div class="card-plant">
+
+
+
+            <%# if plant.photos.attached? %>
+              <!-- <img src="<%#= cl_image_path plant.photos.first.key %>" /> -->
+            <%# else %>
+              <img src="https://static.wixstatic.com/media/f61af8_0e1d112d72604aae9e506c5919bd1696~mv2_d_2433_2987_s_4_2.png/v1/fill/w_232,h_232,al_c,q_85,usm_0.66_1.00_0.01/f61af8_0e1d112d72604aae9e506c5919bd1696~mv2_d_2433_2987_s_4_2.webp" />
+            <%# end %>
+
+          <div class="card-product-infos p-4">
+             <h2><%= plant.name %></h2>
+            <%= link_to "Details", plant %>
+          </div>
+
+      </div>
+     <% end %>
+  </div>
+  </div>
+
+</div>
 

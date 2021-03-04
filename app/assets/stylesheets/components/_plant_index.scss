@@ -1,0 +1,57 @@
+.cards-plant{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.card-plant{
+  width: 250px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.hide-info {
+  display: none;
+  position:absolute;
+  width: 250px;
+  background-color: white;
+  text-align: center;
+  padding: 10px 0;
+
+}
+
+.card-plant:hover + .hide-info {
+  display: block;
+  filter: brightness(85%);
+}
+
+.card-plant img{
+
+}
+
+.filter-plant{
+  width: 200px;
+}
+
+.search-plant{
+  text-align: right;
+}
+
+.filter_by{
+  border-bottom: 1px solid #ccc;
+
+}
+
+.filter_by h3{
+ text-align: center;
+ border-bottom: 1px solid #ccc;
+ padding: 10px;
+
+}
+
+.filter_by ul{
+  list-style-type:none;
+}
+
+
+

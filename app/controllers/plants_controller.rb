@@ -6,6 +6,7 @@ class PlantsController < ApplicationController
     #getting all users
     @users = User.all
     @plants = Plant.all
+    @types = Type.all
 
     #getting the latitude and longitude for each user
     @markers = @users.geocoded.map do |user|
