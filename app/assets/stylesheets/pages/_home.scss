@@ -1,18 +1,19 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Mono&display=swap');
 
 .banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: url(asset-path('main_banner.jpg'));
+  background-image: url("https://nsiplants.com/sites/default/files/styles/hero_custom_user_wide_1x/public/images/nsip-home-hero_0.jpg?itok=XhEVs80G&timestamp=1499271961");
 }
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 40px;
+  font-family: 'PT Mono', monospace;
 }
 
 .banner p {
@@ -37,3 +38,6 @@
   color: black;
 }
 
+#no-line a:hover{
+  text-decoration: none;
+}

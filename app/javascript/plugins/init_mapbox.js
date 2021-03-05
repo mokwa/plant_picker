@@ -21,8 +21,8 @@ const initMapbox = () => {
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
-      element.style.width = '30px';
-      element.style.height = '30px';
+      element.style.width = '40px';
+      element.style.height = '40px';
 
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(element)
@@ -39,11 +39,6 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-    markers.forEach((marker) => {
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(map);
-    });
 
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                                      mapboxgl: mapboxgl }));

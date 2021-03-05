@@ -1,5 +1,5 @@
-class PlantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :from_type]
   before_action :find_plant, only: [:show, :edit, :update, :destroy]
 
   def index

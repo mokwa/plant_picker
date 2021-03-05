@@ -22,9 +22,7 @@
         <div class="d-flex justify-content-between mr-2 ">
         	<% if @plant.photos.attached? %>
         	 <% @plant.photos.each do |photo| %>
-
-          		<%= cl_image_tag photo.key, class: "image_plant m-2", height: 200 %>
-
+              <%= cl_image_tag photo.key, class: "image_plant m-2", height: 200 %>
       	   <% end %>
 
           <% end %>
@@ -32,20 +30,19 @@
       </div>
 
 
-    	<div class="card-plant-show-info d-flex flex-column col-4 justify-content-between">
+    	<div class="card-plant-show-info d-flex flex-column col-4 justify-content-between pt-2">
         <div>
           <h2><%= @plant.name %> </h2>
-          <p><%= @plant.type.name %></p>
+          <i><h4 class="mt-4"><%= @plant.type.name %></h4></i>
           <p><%= @plant.description %></p>
-        </div>
-
-        <% if current_user != @plant.user %>
+          <% if current_user != @plant.user %>
           <% if @chatroom %>
-            <%= link_to "Get in touch", chatroom_path(@chatroom), class: "btn btn-primary" %>
+            <%= link_to "Get in touch", chatroom_path(@chatroom), class: "mt-4 btn btn-primary" %>
           <% else %>
-            <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "btn btn-primary"  %>
+            <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "mt-4  btn btn-primary"  %>
           <% end %>
         <% end %>
+        </div>
     	</div>
     </div>
   </div>
