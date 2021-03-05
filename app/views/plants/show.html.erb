@@ -42,6 +42,10 @@
             <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "mt-4  btn btn-primary"  %>
           <% end %>
         <% end %>
+        <% if @plant.user === current_user %>
+          <%= link_to "Delete", plant_path(@plant), class: 'mt-4  btn btn-secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
         </div>
     	</div>
     </div>
