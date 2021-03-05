@@ -1,17 +1,16 @@
 
-<div class="show-container mt-4">
 
-  <div class="card-plant p-2">
+  <div class="card-plant-show container mt-4">
 
     <!-- The grid: four columns -->
 
   	<div class="row p-2">
-	    <div class="col">
-    	 	<div class="row">
-    	 		<div class="col-md-6 offset-md-3">
+	    <div class="col-8">
+    	 	<div class="row m-2">
+    	 		<div class="col p-0">
       	 	  <div class="block-image">
         	 	 	<% if @plant.photos.attached? %>
-        	 	 		<%= cl_image_tag @plant.photos.first.key, id: "expandedImg", height: 500, width: "100%" %>
+        	 	 		<%= cl_image_tag @plant.photos.first.key, id: "expandedImg" %>
         	 	 	<% else %>
                  <img src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" id="expandedImg" style="width:100%">
         	 	 	<% end %>
@@ -19,36 +18,45 @@
           </div>
         </div>
 
-        <div class="row mt-2">
+        <div class="d-flex justify-content-between mr-2 ml-2 mb-0">
         	<% if @plant.photos.attached? %>
         	 <% @plant.photos.each do |photo| %>
-          	 <div class="col">
-          		<%= cl_image_tag photo.key, class: "image_plant", height: 200 %>
+          	 <div class=" p-0">
+          		<%= cl_image_tag photo.key, class: "image_plant mt-10", height: 200 %>
           	 </div>
         	 <%  end %>
         	<% else %>
-            <div class="col">
-      		    <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
+            <div class=" p-0">
+      		    <img class="image_plant mt-2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
       		  </div>
-            <div class="col">
-              <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
+            <div class=" p-0">
+              <img class="image_plant mt-2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
             </div>
-            <div class="col">
-              <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
+            <div class=" p-0">
+              <img class="image_plant mt2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
             </div>
-            <div class="col">
-              <img class="image_plant" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
+            <div class=" p-0">
+              <img class="image_plant mt2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
             </div>
       	  <% end %>
       	</div>
       </div>
 
-    	<div class="card-plant-infos col">
-        <h2><%= @plant.name %> </h2>
-        <p><%= @plant.type.name %></p>
-        <p><%= @plant.description %></p>
-        <a class="btn btn-flat" href="#">Get in touch</a>
+
+    	<div class="card-plant-show-info d-flex flex-column col-4 justify-content-between">
+        <div>
+          <h2><%= @plant.name %> </h2>
+          <p><%= @plant.type.name %></p>
+          <p><%= @plant.description %></p>
+        </div>
+
+        <% if current_user != @plant.user %>
+          <% if @chatroom %>
+            <%= link_to "Get in touch", chatroom_path(@chatroom), class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "btn btn-primary"  %>
+          <% end %>
+        <% end %>
     	</div>
     </div>
-	</div>
-</div>
+  </div>

@@ -8,6 +8,7 @@ function myFunction() {
       expandImg.src = event.currentTarget.src;
       var expanding_image = document.querySelector(".block-image")
       expanding_image.style.display = "block";
+   
     });
   });
 

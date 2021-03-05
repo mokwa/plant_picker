@@ -1,0 +1,25 @@
+<div class="container mt-4">
+<h1>#<%= @chatroom.name %></h1>
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <% @chatroom.messages.each do |message| %>
+    <div class="message-container" id="message-<%= message.id %>">
+      <i class="author">
+        <span><%= message.user.nickname %></span>
+        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </i>
+      <p><%= message.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+<% end %>
+
+<% if current_user != @chatroom.user && @chatroom.plant.status == "available" %>
+  <div id="show-page-for-chatroom">
+    <%= link_to "Swap", chatroom_transitions_path(@chatroom), method: :post, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+</div>
