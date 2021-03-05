@@ -1,5 +1,5 @@
 <div class="container mt-4">
-<h1>#<%= @chatroom.name %></h1>
+<h1> <%= @chatroom.plant.user.nickname %> <%= @chatroom.name %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
