@@ -1,5 +1,5 @@
 <div class="container mt-4">
-<h1>#<%= @chatroom.name %></h1>
+<h1> <%= @chatroom.plant.user.nickname %> <%= @chatroom.name %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
@@ -18,8 +18,10 @@
 
 <% if current_user != @chatroom.user && @chatroom.plant.status == "available" %>
   <div id="show-page-for-chatroom">
-    <%= link_to "Swap", chatroom_transitions_path(@chatroom), method: :post, class: "btn btn-primary" %>
+    <%= link_to "Promised", chatroom_transitions_path(@chatroom), method: :post, class: "btn btn-primary" %>
   </div>
+  <% elsif @chatroom.plant.status == "promised" %>
+    <%= flash.alert = "This Plant is promised to you!" %>
 <% end %>
 
 </div>
