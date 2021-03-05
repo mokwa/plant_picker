@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+
+  get "/fetch_plants" => 'plants#from_type', as: 'fetch_plants'
+
   resources :plants do
     resources :chatrooms, only: :create 
   end
@@ -11,5 +14,4 @@ Rails.application.routes.draw do
     resources :transitions, only: :create
     resources :messages, only: :create
   end
-
 end

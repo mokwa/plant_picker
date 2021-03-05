@@ -1,0 +1,17 @@
+
+
+  <% @plants.each do |plant| %>
+    <%= link_to  plant do %>
+      <div class="index-card-plant mt-4">
+        <% if plant.photos.attached? %>
+          <%= cl_image_tag plant.photos.first.key%>
+        <% else %>
+          <img src="https://static.wixstatic.com/media/f61af8_0e1d112d72604aae9e506c5919bd1696~mv2_d_2433_2987_s_4_2.png" />
+        <% end %>
+          <h3 class="card-title text-center"><%= plant.name %></h3>
+
+      </div>
+    <% end %>
+
+  <% end %>
+
