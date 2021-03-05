@@ -1,11 +1,21 @@
-.show-container {
-  overflow: hidden;
+.card-plant-show {
   background: white;
-  display: flex;
-  align-items: center;
+  height: 600px;
 }
 
-.card-plant img {
+.big-image {
+  width: 600px;
+
+}
+
+#expandedImg {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+}
+
+.card-plant-show img {
   height: 100%;
   width: 120px;
   object-fit: cover;
@@ -17,17 +27,17 @@
   margin: 0;
 }
 
-.card-plant-info p {
-  font-size: 12px;
+.card-plant-show-info p {
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
-.card-plant .card-plant-infos {
-  padding: 16px;
-}
+// .card-plant .card-plant-infos {
+//   padding: 16px;
+// }
 
 .btn-flat {
   color: white;
