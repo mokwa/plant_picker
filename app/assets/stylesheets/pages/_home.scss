@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: url("main_banner.jpg")
+  background-image: url(asset-path('main_banner.jpg'));
 }
 
 .banner h1 {

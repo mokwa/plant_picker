@@ -5,6 +5,7 @@
     <!-- The grid: four columns -->
 
   	<div class="row p-2">
+
 	    <div class="col-8">
     	 	<div class="row m-2">
     	 		<div class="col p-0">
@@ -12,33 +13,21 @@
         	 	 	<% if @plant.photos.attached? %>
         	 	 		<%= cl_image_tag @plant.photos.first.key, id: "expandedImg" %>
         	 	 	<% else %>
-                 <img src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" id="expandedImg" style="width:100%">
+                 <img src="https://images.unsplash.com/photo-1551893665-f843f600794e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" id="expandedImg" style="width:100%">
         	 	 	<% end %>
             </div>
           </div>
         </div>
 
-        <div class="d-flex justify-content-between mr-2 ml-2 mb-0">
+        <div class="d-flex justify-content-between mr-2 ">
         	<% if @plant.photos.attached? %>
         	 <% @plant.photos.each do |photo| %>
-          	 <div class=" p-0">
-          		<%= cl_image_tag photo.key, class: "image_plant mt-10", height: 200 %>
-          	 </div>
-        	 <%  end %>
-        	<% else %>
-            <div class=" p-0">
-      		    <img class="image_plant mt-2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
-      		  </div>
-            <div class=" p-0">
-              <img class="image_plant mt-2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
-            </div>
-            <div class=" p-0">
-              <img class="image_plant mt2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
-            </div>
-            <div class=" p-0">
-              <img class="image_plant mt2" src="https://i.pinimg.com/originals/d7/a8/aa/d7a8aa0e1e9887c6670ba88d2238c8f5.jpg" alt="gardenia">
-            </div>
-      	  <% end %>
+
+          		<%= cl_image_tag photo.key, class: "image_plant m-2", height: 200 %>
+
+      	   <% end %>
+
+          <% end %>
       	</div>
       </div>
 
