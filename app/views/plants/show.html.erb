@@ -42,16 +42,21 @@
       	</div>
       </div>
 
+
     	<div class="card-plant-show-info d-flex flex-column col-4 justify-content-between">
         <div>
           <h2><%= @plant.name %> </h2>
           <p><%= @plant.type.name %></p>
           <p><%= @plant.description %></p>
-          
         </div>
-    
-        <a class="btn btn-flat" href="#">Get in touch</a>
-        
+
+        <% if current_user != @plant.user %>
+          <% if @chatroom %>
+            <%= link_to "Get in touch", chatroom_path(@chatroom), class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "btn btn-primary"  %>
+          <% end %>
+        <% end %>
     	</div>
     </div>
   </div>
