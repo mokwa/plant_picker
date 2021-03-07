@@ -40,9 +40,9 @@ document.addEventListener('turbolinks:load', () => {
 
 
 //Event listener for the map
-// document.addEventListener('turbolinks:load', () => {
-//   initMapbox();
-// })
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 
 
 global.$ = jQuery;
