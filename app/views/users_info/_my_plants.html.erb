@@ -1,0 +1,43 @@
+<div class="container ">
+<h2>My plants</h2>
+  <div class="row d-flex">
+
+    <% @plants.each do |plant| %>
+
+      <% if current_user.id === plant.user_id %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card-product notification mr-2">
+            <% if plant.photos.attached? %>
+                <%= cl_image_tag plant.photos.first.key %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm" %>
+            <% end %>
+            <div>
+              <div class="card-product-infos">
+
+                <% if plant.status == "available" %>
+                  <span class="badge badge-pill badge-success">Available</span>
+                <% elsif plant.status == "promised"%>
+                  <span class="badge badge-pill badge-warning">Promised</span>
+                  <%= link_to " Mark as traded" , status_update_path(plant), class:"badge badge-pill badge-info", method: :patch, data: { confirm: 'Did you trade your plant?' }%>
+                <% else %>
+                   <span class="badge badge-pill badge-secondary">Traded</span>
+                <% end %>
+
+                <p><%= plant.name %> </p>
+                <p><%= plant.type.name %> <%= plant.status %></p>
+              </div>
+
+              <div class="notification-actions">
+                <%= link_to " Edit" , edit_plant_path(plant), class:"fas fa-pencil-alt" %>
+                <%= link_to " Delete" , profile_path(plant), class:"far fa-trash-alt", method: :delete, data: { confirm: 'Are you sure?' }%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  </div>
+</div>

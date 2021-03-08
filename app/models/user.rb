@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :nickname, presence: true, uniqueness: { message: "name already exists" }
-
+  has_one_attached :avatar
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end

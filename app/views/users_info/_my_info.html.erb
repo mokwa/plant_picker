@@ -1,0 +1,23 @@
+<div class="container  mt-4"">
+  <h2>My info</h2>
+  <div class="notification p-4">
+
+      <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar-large", alt: "avatar-large" %>
+      <% else %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+      <% end %>
+    <div class="notification-content">
+      <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+      <p><%= current_user.address %></p>
+      <p><%= current_user.city %></p>
+      <p><%= current_user.nickname %></p>
+    </div>
+
+    <div class="notification-actions">
+      <%= link_to " Edit" , edit_user_registration_path(current_user), class:"fas fa-pencil-alt" %>
+    </div>
+
+  </div>
+
+</div>

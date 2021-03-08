@@ -1,0 +1,29 @@
+<div class="container ">
+<h2>My trades</h2>
+  <div class="row d-flex">
+
+    <% @transitions.each do |transition| %>
+
+      <% if current_user.id === transition.user_id %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card-product notification mr-2">
+            <% if transition.plant.photos.attached? %>
+                <%= cl_image_tag plant.photos.first.key %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm" %>
+            <% end %>
+            <div>
+              <div class="card-product-infos">
+
+                <p><%= transition.plant.name %> </p>
+                <p><%= transition.plant.type.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  </div>
+</div>
