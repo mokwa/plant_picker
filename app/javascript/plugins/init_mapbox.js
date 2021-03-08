@@ -4,6 +4,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  if (mapElement) {
   const markers = JSON.parse(mapElement.dataset.markers);
 
    const fitMapToMarkers = (map, markers) => {
@@ -46,9 +47,7 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
     addMarkersToMap(map, markers);
   }
-
-
-
+ }
 };
 
 export { initMapbox };

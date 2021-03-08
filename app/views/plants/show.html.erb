@@ -37,6 +37,7 @@
           <p><%= @plant.description %></p>
           <% if current_user != @plant.user %>
           <% if @chatroom %>
+            <%= render "modal", chatroom: @chatroom %>
             <%= link_to "Get in touch", chatroom_path(@chatroom), class: "mt-4 btn btn-primary" %>
           <% else %>
             <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "mt-4  btn btn-primary"  %>

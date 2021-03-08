@@ -35,14 +35,8 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initChatroomCable();
-  myFunction()
-});
-
-
-//Event listener for the map
-document.addEventListener('turbolinks:load', () => {
+  myFunction();
   initMapbox();
-})
-
+});
 
 global.$ = jQuery;
