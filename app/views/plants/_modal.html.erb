@@ -18,12 +18,13 @@
         <%= render "messages/message", message: message %>
       <% end %>
 
-      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+    </div>
+
+      <%= simple_form_for [ @chatroom, @message ], remote: true, class: "ajax-request" do |f| %>
       <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
       <%= f.submit :send ,class: "btn btn-primary" %>
       <% end %>
 
-    </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
