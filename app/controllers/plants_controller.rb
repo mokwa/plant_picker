@@ -20,6 +20,7 @@
   end
 
   def show
+    @message = Message.new
     @chatroom = Chatroom.find_by(plant: @plant, user: current_user)
   end
 
