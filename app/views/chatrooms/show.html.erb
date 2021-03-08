@@ -1,6 +1,5 @@
 <div class="container mt-4">
-  <div class="form-login">
-
+  <div class="chatroom">
     <h2> You are talking to<i> <%= @chatroom.plant.user.nickname %></i></h2> <%= @chatroom.name %>
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
@@ -20,6 +19,5 @@
       <% elsif @chatroom.plant.status == "promised" %>
         <i><h3><%= flash.alert = "This Plant is promised to you!" %></h3></i>
     <% end %>
-    
   </div>
 </div>
