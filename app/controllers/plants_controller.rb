@@ -1,6 +1,6 @@
   class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :from_type]
-  before_action :find_plant, only: [:show, :edit, :update, :destroy]
+  before_action :find_plant, only: [:show, :edit, :update, :destroy, :status_update]
 
   def index
     #getting all users
@@ -44,6 +44,11 @@
   def update
     @plant.update(plant_params)
     redirect_to plant_path(@plant)
+  end
+
+  def status_update
+    @plant.update!(status: "traded")
+    redirect_to request.referrer
   end
 
   def destroy
