@@ -17,7 +17,14 @@
         <%= link_to "Promise", chatroom_transitions_path(@chatroom), method: :post, class: "btn btn-primary" %>
       </div>
       <% elsif @chatroom.plant.status == "promised" %>
-        <i><h3><%= flash.alert = "This Plant is promised to you!" %></h3></i>
-    <% end %>
+        <% @chatroom.plant.transitions.each do |transition| %>
+          <% if transition.user == current_user %>
+            <i><h3><%= flash.alert = "This Plant is promised to you!" %></h3></i>
+          <% else %>
+            <i><h3><%= flash.alert = "Sorry, this Plant was promised to someone else :(" %></h3></i>
+          <% end %>
+        <% end %>
+      <% end %>
+
   </div>
 </div>

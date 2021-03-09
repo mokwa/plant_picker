@@ -1,0 +1,24 @@
+<div class="container mt-2">
+<h2>My chats</h2>
+  <div class="row d-flex mt-3">
+
+    <ul class="list-group">
+    <% @chatrooms.each do |chatroom| %>
+
+      <% if current_user.id === chatroom.user_id %>
+
+        <%= link_to chatroom_path(chatroom) do %>
+          <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+           #<%= chatroom.plant.user.nickname %> - <%= chatroom.plant.name %>
+
+           <!--  <span class="badge badge-primary badge-pill">1</span> -->
+          </li>
+        <% end %>
+
+
+      <% end %>
+
+    <% end %>
+    </ul>
+  </div>
+</div>
