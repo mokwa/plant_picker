@@ -1,7 +1,6 @@
 <div class="modal-button" data-toggle="modal" data-target="#exampleModal" >
   <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 128 128" height="64" width="64" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="128px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M112,0H16C7.164,0,0,7.164,0,16v64c0,8.836,7.164,16,16,16h24l32,32V96h40c8.836,0,16-7.164,16-16V16    C128,7.164,120.836,0,112,0z M120,80c0,4.414-3.59,8-8,8H64v20.688L43.313,88H16c-4.41,0-8-3.586-8-8V16c0-4.414,3.59-8,8-8h96    c4.41,0,8,3.586,8,8V80z"/></g></g><path d="M24,32h80v-8H24V32z" /><path d="M24,48h80v-8H24V48z"/><path d="M24,64h48v-8H24V64z"/></svg>
 </div>
-<!-- Modal -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -14,19 +13,25 @@
     <div id="messages" data-chatroom-id="<%= chatroom.id %>">
 
       <% chatroom.messages.each do |message| %>
+      <div class="newwwww">
         <%= render "messages/message", message: message %>
+      </div>
       <% end %>
-
     </div>
 
-      <%= simple_form_for [ @chatroom, @message ], remote: true, class: "ajax-request" do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-      <%= f.submit :send ,class: "btn btn-primary" %>
+    <div class="modal-form">
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Send Message#{@chatroom.name}" %>
+      <%= button_tag type: 'submit', class: "button postfix" do %>
+        <?xml version="1.0" ?><svg id="Layer_1" width="32" height="32" style="enable-background:new 0 0 80 80;" version="1.1" viewBox="0 0 80 80" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><g id="Layer_2"><g id="Layer_3"><path d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40S20.9,74.6,40,74.6S74.6,59.1,74.6,40C74.5,20.9,59.1,5.5,40,5.4z M40,71.6    C22.6,71.6,8.4,57.4,8.4,40S22.6,8.4,40,8.4S71.6,22.6,71.6,40c0,0,0,0,0,0C71.5,57.4,57.4,71.5,40,71.6z"/><path d="M21.4,16.5L32.2,40L21.4,63.5L63.1,40L21.4,16.5z M28,23.7l26.3,14.8H34.8L28,23.7z M34.8,41.5h19.5L28,56.3L34.8,41.5z"/></g></g></svg>
       <% end %>
+      <% end %>
+    </div>
+
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

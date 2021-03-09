@@ -42,11 +42,11 @@
   text-decoration: none;
 }
 
-svg:hover {
+.modal-button svg:hover {
   stroke: $blue;
   fill: $blue;
 }
- svg {
+ .modal-button svg {
    cursor: pointer;
    position: absolute;
    bottom: -10px;
@@ -55,7 +55,10 @@ svg:hover {
 
  .flex-grow-1 {
    position: relative;
- }
+  }
+
+ .chatroom-page {
+  }
 
  .my-message {
    
@@ -83,8 +86,8 @@ svg:hover {
  }
 
  .chatroom {
-   margin-left: auto;
-   margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 800px;
     background: white;
     padding: 10px 20px;
@@ -96,5 +99,68 @@ svg:hover {
   }
  }
 
+ .chatroom h3 {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+
+ .chatroom h1 {
+   text-align: center;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-weight: bold;
+ }
+
+ .modal-header h2 {
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+ }
+
+ .modal-header i {
+   font-weight: bold;
+   font-size: 40px;
+ }
+
  .message-container {
  }
+
+.modal-form {
+  margin-top: 20px;
+  position: relative;
+ }
+
+.modal-form svg {
+  position: absolute;
+  top: 3px;
+  right: 9px;
+ }
+
+ .modal-form svg:hover {
+  stroke: $blue;
+  fill: $blue;
+ }
+
+.postfix {
+  visibility: hidden;
+}
+
+#Layer_1 {
+  visibility: visible;
+}
+
+.show-form {
+  position: relative;
+}
+
+.show-form svg {
+  position: absolute;
+  top: 3px;
+  right: 9px;
+}
+
+.show-form svg:hover {
+  stroke: $blue;
+  fill: $blue;
+}
+
+.newwwww {
+  margin-top: 20px;
+}
