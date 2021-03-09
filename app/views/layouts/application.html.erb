@@ -11,11 +11,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class="body-color">
    <div class="d-flex flex-column min-vh-100">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
-    <div class="flex-grow-1 chatroom-page">
+    <div class="flex-grow-1">
       <%= yield %>
     </div>
    <%= render 'shared/footer' %>
