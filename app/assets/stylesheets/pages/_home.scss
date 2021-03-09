@@ -42,11 +42,11 @@
   text-decoration: none;
 }
 
-svg:hover {
+.modal-button svg:hover {
   stroke: $blue;
   fill: $blue;
 }
- svg {
+ .modal-button svg {
    cursor: pointer;
    position: absolute;
    bottom: -10px;
@@ -83,8 +83,8 @@ svg:hover {
  }
 
  .chatroom {
-   margin-left: auto;
-   margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 800px;
     background: white;
     padding: 10px 20px;
@@ -98,3 +98,42 @@ svg:hover {
 
  .message-container {
  }
+
+.modal-form {
+  margin-top: 20px;
+  position: relative;
+ }
+
+.modal-form svg {
+  position: absolute;
+  top: 3px;
+  right: 9px;
+ }
+
+ .modal-form svg:hover {
+  stroke: $blue;
+  fill: $blue;
+ }
+
+.postfix {
+  visibility: hidden;
+}
+
+#Layer_1 {
+  visibility: visible;
+}
+
+.show-form {
+  position: relative;
+}
+
+.show-form svg {
+  position: absolute;
+  top: 3px;
+  right: 9px;
+}
+
+.show-form svg:hover {
+  stroke: $blue;
+  fill: $blue;
+}
