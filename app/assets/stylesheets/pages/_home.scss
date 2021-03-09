@@ -55,8 +55,8 @@
 
  .flex-grow-1 {
    position: relative;
- }
-
+   background-image: url(https://images.unsplash.com/photo-1571035558438-56906e889b0e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80);
+  }
  .my-message {
    
  }
@@ -94,6 +94,26 @@
   h2 {
     text-align: center;
   }
+ }
+
+ .chatroom h3 {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+
+ .chatroom h1 {
+   text-align: center;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-weight: bold;
+ }
+
+ .modal-header h2 {
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+ }
+
+ .modal-header i {
+   font-weight: bold;
+   font-size: 40px;
  }
 
  .message-container {
@@ -136,4 +156,8 @@
 .show-form svg:hover {
   stroke: $blue;
   fill: $blue;
+}
+
+.newwwww {
+  margin-top: 20px;
 }
