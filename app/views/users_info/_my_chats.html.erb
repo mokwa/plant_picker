@@ -3,13 +3,24 @@
   <div class="row d-flex mt-3">
 
     <ul class="list-group">
+  <% @plants.each do |plant| %>
+      <% if current_user.id == plant.user_id %>
+          <% @chatrooms.each do |chatroom| %>
+              <% if chatroom.plant == plant %>
+                <%= plant.name %>
+                <%= chatroom.id %>
+              <% end %>
+          <% end %>
+
+      <% end %>
+    <% end %>
     <% @chatrooms.each do |chatroom| %>
 
-      <% if current_user.id === chatroom.user_id %>
+      <% if current_user.id == chatroom.user_id %>
 
         <%= link_to chatroom_path(chatroom) do %>
           <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-           #<%= chatroom.plant.user.nickname %> - <%= chatroom.plant.name %>
+           #<%= chatroom.plant.user.nickname %> - <%= chatroom.plant.name %> <%= chatroom.id %>
 
            <!--  <span class="badge badge-primary badge-pill">1</span> -->
           </li>
@@ -22,3 +33,4 @@
     </ul>
   </div>
 </div>
+

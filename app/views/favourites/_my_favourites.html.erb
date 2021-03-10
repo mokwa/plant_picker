@@ -1,23 +1,29 @@
-<div class="container mt-4">
-	<h1>My favourites</h1>
-	<% if @favourites %>
-	<% @favourites.each do |favourite|  %>
-	    <%= link_to  favourite.plant do %>
-      <div class="index-card-plant mt-4">
-        <% if favourite.plant.photos.attached? %>
-          <%= cl_image_tag favourite.plant.photos.first.key%>
-        <% else %>
-          <img src="https://static.wixstatic.com/media/f61af8_0e1d112d72604aae9e506c5919bd1696~mv2_d_2433_2987_s_4_2.png" />
-        <% end %>
-          <h3 class="card-title text-center"><%=favourite.plant.name %></h3>
+<div class="container mt-5">
+<% if @favourites %>
+  <h2>My favourites</h2>
+    <div class="row d-flex">
+      <% @favourites.each do |favourite| %>
+          <div class="col-12 col-md-6">
+            <div class="card-product">
+              <% if favourite.plant.photos.attached? %>
+                  <%= cl_image_tag favourite.plant.photos.first.key %>
+              <% else %>
+                <%= image_tag "plant.jpg" %>
+              <% end %>
+              <div>
+              <div class="profile-info">
+                <p><%= favourite.plant.name %> </p>
+              </div>
+              <div class="profile-actions">
+                <%= link_to "", favourite_path(favourite), method: :delete, class:"fas fa-heart heart-green", title:'Remove plant from favourites' %>
+              </div>
+              </div>
+            </div>
+          </div>
 
-      </div>
-    <% end %>
 
+      <% end %>
 
-
-
-	<% end %>
-	<% end %>
-
+    </div>
+  <% end %>
 </div>

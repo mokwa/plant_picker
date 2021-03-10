@@ -25,14 +25,14 @@
 
             <div class="profile-info">
                <p><%= plant.name %> </p>
-
-               <% if plant.status == "promised"%>
-                    <%= link_to " Mark as traded" , status_update_path(plant), class:"fas fa-check mt-4", method: :patch, data: { confirm: 'Did you trade your plant?' }%>
-               <% end %>
             </div>
             <div class="profile-actions">
-              <%= link_to "Edit " , edit_plant_path(plant), class:"fas fa-pencil-alt", style:"margin-right:10px;"%>
-              <%= link_to "Delete" , profile_path(plant), class:"far fa-trash-alt", method: :delete, data: { confirm: 'Are you sure?' }%>
+              <% if plant.status == "promised"%>
+                    <%= link_to "" , status_update_path(plant), class:"fas fa-check mt-4", style:"margin-right:10px", method: :patch, data: { confirm: 'Did you trade your plant?' }, title: 'Mark this plant as tradded.'%>
+               <% end %>
+              <%= link_to "" , plant_path(plant), class:"far fa-eye", style:"margin-right:10px;"%>
+              <%= link_to "" , edit_plant_path(plant), class:"fas fa-pencil-alt", style:"margin-right:10px;"%>
+              <%= link_to "" , profile_path(plant), class:"far fa-trash-alt", method: :delete, data: { confirm: 'Are you sure?' }%>
             </div>
             </div>
           </div>
