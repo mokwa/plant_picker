@@ -1,17 +1,15 @@
 
+<% @plants.each do |plant| %>
+  <%= link_to  plant do %>
+    <div class="index-card-plant mt-4">
+      <% if plant.photos.attached? %>
+        <%= cl_image_tag plant.photos.first.key%>
+      <% else %>
+        <%= image_tag "plant.jpg" %>
+      <% end %>
+        <h3 id="no-line" class="card-title text-center"><%= plant.name %></h3>
 
-  <% @plants.each do |plant| %>
-    <%= link_to  plant do %>
-      <div class="index-card-plant mt-4">
-        <% if plant.photos.attached? %>
-          <%= cl_image_tag plant.photos.first.key%>
-        <% else %>
-          <%= image_tag "plant.jpg" %>
-        <% end %>
-          <h3 id="no-line" class="card-title text-center"><%= plant.name %></h3>
-
-      </div>
-    <% end %>
-
+    </div>
   <% end %>
 
+<% end %>

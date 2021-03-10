@@ -5,12 +5,14 @@
 .avatar-large {
   width: 56px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-img{
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-info{
@@ -86,7 +88,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card-product-badge{

@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container mt-2">
 <h2>My plants</h2>
   <div class="row d-flex">
 
@@ -24,13 +24,13 @@
             </div>
 
             <div class="profile-info">
-               <p><%= plant.name %> </p>
+               <h2> <%= link_to plant.name , plant_path(plant), style:"margin-right:10px;"%></h2>
             </div>
             <div class="profile-actions">
               <% if plant.status == "promised"%>
                     <%= link_to "" , status_update_path(plant), class:"fas fa-check mt-4", style:"margin-right:10px", method: :patch, data: { confirm: 'Did you trade your plant?' }, title: 'Mark this plant as tradded.'%>
                <% end %>
-              <%= link_to "" , plant_path(plant), class:"far fa-eye", style:"margin-right:10px;"%>
+
               <%= link_to "" , edit_plant_path(plant), class:"fas fa-pencil-alt", style:"margin-right:10px;"%>
               <%= link_to "" , profile_path(plant), class:"far fa-trash-alt", method: :delete, data: { confirm: 'Are you sure?' }%>
             </div>

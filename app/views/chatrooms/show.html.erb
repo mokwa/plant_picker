@@ -26,12 +26,14 @@
            <% @chatroom.plant.transitions.each do |transition| %>
              <% if transition.user == current_user %>
                <i><h3><%= flash.alert = "This Plant is promised to you!" %></h3></i>
+             <% elsif @chatroom.plant.user == current_user %>
+               <i><h3><%= flash.alert = "You promised this plant. " %> </h3></i>
              <% else %>
                <i><h3><%= flash.alert = "Sorry, this Plant was promised to someone else :(" %></h3></i>
              <% end %>
            <% end %>
          <% end %>
-      
+
       </div>
   </div>
 </div>
