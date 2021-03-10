@@ -61,7 +61,7 @@
   }
 
  .my-message {
-   
+
  }
 
   .their-message {
@@ -101,18 +101,13 @@
 
  .chatroom h3 {
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
  }
 
  .chatroom h1 {
    text-align: center;
-   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
    font-weight: bold;
  }
 
- .modal-header h2 {
-   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
- }
 
  .modal-header i {
    font-weight: bold;
@@ -163,4 +158,9 @@
 
 .newwwww {
   margin-top: 20px;
+}
+
+
+a:hover{
+  text-decoration: none !important;
 }
