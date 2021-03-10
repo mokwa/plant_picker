@@ -4,7 +4,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 220px 0;
   background-image: url("https://nsiplants.com/sites/default/files/styles/hero_custom_user_wide_1x/public/images/nsip-home-hero_0.jpg?itok=XhEVs80G&timestamp=1499271961");
 }
 
@@ -165,14 +165,16 @@ a:hover{
 }
   
 .home-page-text {
+  font-size: 35px;
   text-align: center;
   margin-bottom: 40px;
+  font-family: "Open Sans", cursive, "Nunito", "Helvetica", "sans-serif";
 }
 
 .home-page-feature {
   display: flex;
   justify-content: space-evenly;
-  background-color: white;
+  background-color: #305252;
   margin: 50px;
   padding: 50px;
 }
@@ -208,6 +210,8 @@ a:hover{
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  background-color: #F4F4F4;
+  color: #305252;
 }
 
 .card-trip-infos .card-trip-user {
