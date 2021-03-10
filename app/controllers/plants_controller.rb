@@ -22,6 +22,7 @@
   def show
     @message = Message.new
     @chatroom = Chatroom.find_by(plant: @plant, user: current_user)
+    @favourite = Favourite.find_by(user_id: current_user.id, plant_id: @plant.id)
   end
 
   def new

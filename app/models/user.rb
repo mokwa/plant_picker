@@ -11,5 +11,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  # relationship user/favourites
+  has_many :favourites
 end
 

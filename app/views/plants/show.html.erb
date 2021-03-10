@@ -32,7 +32,22 @@
 
     	<div class="card-plant-show-info d-flex flex-column col-4 justify-content-between pt-2">
         <div>
-          <h2><%= @plant.name %> </h2>
+          <div class= "d-flex justify-content-between">
+            <h2><%= @plant.name %> </h2>
+            <% if @favourite%>
+              <%= link_to favourite_path(@favourite), method: :delete do %>
+               <i class="fas fa-heart heart-green"></i>
+              <% end %>
+            <% else %>
+
+            <%= link_to  favourites_path(@favourite, plant_id: @plant.id, user_id: @plant.user.id), method: :post do %>
+
+            <i class="far fa-heart heart-green"></i>
+            <% end %>
+            <% end %>
+            
+          </div>
+
           <i><h4 class="mt-4"><%= @plant.type.name %></h4></i>
           <p><%= @plant.description %></p>
           <% if current_user != @plant.user %>
@@ -46,7 +61,7 @@
         <% if @plant.user === current_user %>
           <%= link_to "Delete", plant_path(@plant), class: 'mt-4  btn btn-secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-
+          
         </div>
     	</div>
     </div>
