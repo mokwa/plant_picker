@@ -9,29 +9,58 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12 section-container-spacer">
-          <h2 class="text-center">Start picking</h2>
+          <h2 class="text-center">How It Works</h2>
       </div>
     </div>
     <div class="row home">
       <div class="col-xs-12 col-md-4 text-center">
         <i class="far fa-heart fa-3x"></i>
         <h3>Search</h3>
-        <p>Find new friends based on common interests and location.</p>
+        <p>Find new friends based on common interests and location, and learn about new plants and how to take care of them in your enviroment.</p>
       </div>
 
       <div class="col-xs-12 col-md-4 text-center">
         <i class="far fa-comment-dots fa-3x"></i>
         <h3>Chat</h3>
-        <p>Send a message and introduce yourself, and then take your friendship from here!</p>
+        <p>Send a message and introduce yourself, and start chatting about your plant, and make new friendships along the way!</p>
       </div>
 
 
       <div class="col-xs-12 col-md-4 text-center">
         <i class="far fa-bell fa-3x"></i>
-        <h3 class="text-center">Pick</h3>
-        <p> Collect or trade your pick.</p>
+        <h3 class="text-center">Meet</h3>
+        <p>After talking with the person arange a time and place where you can meet for a cup of tea and trade your plants. </p>
       </div>
     </div>
   </div>
+</div>
+
+  <h2 class="home-page-text">Featuring Plants</h2>
+
+<div class="home-page-feature">
+
+  <% @plants.each do |plant| %>
+    <%= link_to  plant do %>
+
+    <div class="card-trip-home">
+
+      <% if plant.photos.attached? %>
+        <div class="card-trip-cloud">
+          <%= cl_image_tag plant.photos.first.key%>
+        </div>
+      <% else %>
+        <img src="https://static.wixstatic.com/media/f61af8_0e1d112d72604aae9e506c5919bd1696~mv2_d_2433_2987_s_4_2.png" />
+      <% end %>
+
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= plant.name %></h2>
+      </div>
+    </div>
+    </div>
+    <% end %>
+
+  <% end %>
+
 </div>
 

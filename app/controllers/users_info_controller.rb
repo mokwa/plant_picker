@@ -3,5 +3,7 @@ class UsersInfoController < ApplicationController
     @plants = Plant.all
     @transitions = Transition.all
     @favourites = Favourite.all
+    @chatrooms = Chatroom.all
+    @messages = Message.all
   end
 end

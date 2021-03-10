@@ -1,23 +1,37 @@
-<div class="container mt-4">
-  <div class="chatroom">
-    <h2> You are talking to<i> <%= @chatroom.plant.user.nickname %></i></h2> <%= @chatroom.name %>
-    <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-      <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
-    </div>
+<div class="chatroom-page">
+  <div class="container mt-4">
+      <div class="chatroom">
+        <h3> You are talking to</h3> <h1><i><%= @chatroom.plant.user.nickname %></i></h1> <%= @chatroom.name %>
+        <hr>
+        <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+          <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
 
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-      <%= f.submit :send ,class: "btn btn-primary" %>
-    <% end %>
+        <div class="show-form">
+        <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: "Send Message#{@chatroom.name}" %>
+          <%= button_tag type: 'submit', class: "button postfix" do %>
+            <?xml version="1.0" ?><svg id="Layer_1" width="32" height="32" style="enable-background:new 0 0 80 80;" version="1.1" viewBox="0 0 80 80" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><g id="Layer_2"><g id="Layer_3"><path d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40S20.9,74.6,40,74.6S74.6,59.1,74.6,40C74.5,20.9,59.1,5.5,40,5.4z M40,71.6    C22.6,71.6,8.4,57.4,8.4,40S22.6,8.4,40,8.4S71.6,22.6,71.6,40c0,0,0,0,0,0C71.5,57.4,57.4,71.5,40,71.6z"/><path d="M21.4,16.5L32.2,40L21.4,63.5L63.1,40L21.4,16.5z M28,23.7l26.3,14.8H34.8L28,23.7z M34.8,41.5h19.5L28,56.3L34.8,41.5z"/></g></g></svg>
+          <% end %>
+          <% end %>
+        </div>
 
-    <% if current_user != @chatroom.user && @chatroom.plant.status == "available" %>
-      <div id="show-page-for-chatroom">
-        <%= link_to "Promise", chatroom_transitions_path(@chatroom), method: :post, class: "btn btn-primary" %>
+        <% if current_user != @chatroom.user && @chatroom.plant.status == "available" %>
+          <div id="show-page-for-chatroom">
+            <%= link_to "Promise", chatroom_transitions_path(@chatroom), method: :post, class: "btn btn-primary" %>
+          </div>
+         <% elsif @chatroom.plant.status == "promised" %>
+           <% @chatroom.plant.transitions.each do |transition| %>
+             <% if transition.user == current_user %>
+               <i><h3><%= flash.alert = "This Plant is promised to you!" %></h3></i>
+             <% else %>
+               <i><h3><%= flash.alert = "Sorry, this Plant was promised to someone else :(" %></h3></i>
+             <% end %>
+           <% end %>
+         <% end %>
+      
       </div>
-      <% elsif @chatroom.plant.status == "promised" %>
-        <i><h3><%= flash.alert = "This Plant is promised to you!" %></h3></i>
-    <% end %>
   </div>
 </div>

@@ -3,35 +3,37 @@
   <div class="row d-flex">
 
     <% @plants.each do |plant| %>
-
       <% if current_user.id === plant.user_id %>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card-product notification mr-2">
+        <div class="col-12 col-md-6">
+          <div class="card-product">
             <% if plant.photos.attached? %>
                 <%= cl_image_tag plant.photos.first.key %>
             <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm" %>
+              <%= image_tag "plant.jpg" %>
             <% end %>
             <div>
-              <div class="card-product-infos">
 
-                <% if plant.status == "available" %>
-                  <span class="badge badge-pill badge-success">Available</span>
-                <% elsif plant.status == "promised"%>
-                  <span class="badge badge-pill badge-warning">Promised</span>
-                  <%= link_to " Mark as traded" , status_update_path(plant), class:"badge badge-pill badge-info", method: :patch, data: { confirm: 'Did you trade your plant?' }%>
-                <% else %>
-                   <span class="badge badge-pill badge-secondary">Traded</span>
-                <% end %>
+            <div class="profile_badge">
+              <% if plant.status == "available" %>
+                <span class="badge badge-pill badge-success card-product-badge">Available</span>
+              <% elsif plant.status == "promised"%>
+                <span class="badge badge-pill badge-warning card-product-badge">Promised</span>
+              <% else %>
+                 <span class="badge badge-pill badge-secondary card-product-badge">Traded</span>
+              <% end %>
+            </div>
 
-                <p><%= plant.name %> </p>
-                <p><%= plant.type.name %> <%= plant.status %></p>
-              </div>
+            <div class="profile-info">
+               <p><%= plant.name %> </p>
 
-              <div class="notification-actions">
-                <%= link_to " Edit" , edit_plant_path(plant), class:"fas fa-pencil-alt" %>
-                <%= link_to " Delete" , profile_path(plant), class:"far fa-trash-alt", method: :delete, data: { confirm: 'Are you sure?' }%>
-              </div>
+               <% if plant.status == "promised"%>
+                    <%= link_to " Mark as traded" , status_update_path(plant), class:"fas fa-check mt-4", method: :patch, data: { confirm: 'Did you trade your plant?' }%>
+               <% end %>
+            </div>
+            <div class="profile-actions">
+              <%= link_to "Edit " , edit_plant_path(plant), class:"fas fa-pencil-alt", style:"margin-right:10px;"%>
+              <%= link_to "Delete" , profile_path(plant), class:"far fa-trash-alt", method: :delete, data: { confirm: 'Are you sure?' }%>
+            </div>
             </div>
           </div>
         </div>
