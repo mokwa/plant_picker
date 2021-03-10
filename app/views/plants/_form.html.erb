@@ -1,11 +1,6 @@
 <%= simple_form_for plant do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-
-  <% if @plant.id.present? %>
-  <%= f.select :status, ['Available', 'Promised', 'Traded']%>
-  <% end %>
-
   <%= f.association :type %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, class: 'btn btn-primary' %>

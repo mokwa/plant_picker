@@ -23,7 +23,7 @@
     @message = Message.new
     @chatroom = Chatroom.find_by(plant: @plant, user: current_user)
     #if the user is logged in
-    if current_user.present?
+    if current_user.present? && @plant.user != current_user
       @favourite = Favourite.find_by(user_id: current_user.id, plant_id: @plant.id)
     end
   end
@@ -47,7 +47,7 @@
   def edit; end
 
   def update
-    @plant.update(plant_params)
+    @plant.update!(plant_params)
     redirect_to plant_path(@plant)
   end
 
