@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :plants do
     resources :chatrooms, only: :create
+    resources :favourites, only: [:create]
+ 
   end
 
   resources 'profile', to: 'users_info#index', as: :profile
@@ -20,6 +22,6 @@ Rails.application.routes.draw do
   end
 
  
-  resources :favourites, only: [:create, :destroy]
+  resources :favourites, only: [:destroy]
  
 end
