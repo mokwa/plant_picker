@@ -46,11 +46,20 @@
 
 }
 
+.index-filter-by li a{
+  color: #484848;
+
+}
+
 .index-filter-by h3{
  text-align: center;
  border-bottom: 1px solid #ccc;
  padding: 10px;
 
+}
+
+#no-line h3:hover{
+  text-decoration: none;
 }
 
 .index-filter-by ul{

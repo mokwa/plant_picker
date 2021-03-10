@@ -1,10 +1,12 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: 'Abril Fatface', cursive, "Nunito", "Helvetica", "sans-serif";
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+// Define fonts for body and headers
+$body-font: "Open Sans", "Helvetica", "sans-serif";
+$headers-font: 'Open Sans', cursive, "Nunito", "Helvetica", "sans-serif";
 
 
 
