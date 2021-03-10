@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     resources :transitions, only: [:create, :index]
     resources :messages, only: :create
   end
+
+ 
+  resources :favourites, only: [:create, :destroy]
+ 
 end
