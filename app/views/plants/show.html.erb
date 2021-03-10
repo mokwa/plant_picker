@@ -34,34 +34,33 @@
         <div>
           <div class= "d-flex justify-content-between">
             <h2><%= @plant.name %> </h2>
-            <% if @favourite%>
-              <%= link_to favourite_path(@favourite), method: :delete do %>
-               <i class="fas fa-heart heart-green"></i>
-              <% end %>
-            <% else %>
-
-            <%= link_to  favourites_path(@favourite, plant_id: @plant.id, user_id: @plant.user.id), method: :post do %>
-
-            <i class="far fa-heart heart-green"></i>
+            <% if current_user.present?  && (@plant.user != current_user) %>
+                <% if @favourite%>
+                  <%= link_to favourite_path(@favourite), method: :delete do %>
+                    <i class="fas fa-heart heart-green"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to  favourites_path(@favourite, plant_id: @plant.id, user_id: @plant.user.id), method: :post do %>
+                    <i class="far fa-heart heart-green"></i>
+                  <% end %>
+                <% end %>
             <% end %>
-            <% end %>
-            
           </div>
 
           <i><h4 class="mt-4"><%= @plant.type.name %></h4></i>
           <p><%= @plant.description %></p>
           <% if current_user != @plant.user %>
-          <% if @chatroom %>
-            <%= render "modal", chatroom: @chatroom %>
-            <%= link_to "Get in touch", chatroom_path(@chatroom), class: "mt-4 btn btn-primary" %>
-          <% else %>
-            <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "mt-4  btn btn-primary"  %>
+            <% if @chatroom %>
+              <%= render "modal", chatroom: @chatroom %>
+              <%= link_to "Get in touch", chatroom_path(@chatroom), class: "mt-4 btn btn-primary" %>
+            <% else %>
+              <%= link_to "Get in touch", plant_chatrooms_path(@plant), method: :post, class: "mt-4  btn btn-primary"  %>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if @plant.user === current_user %>
-          <%= link_to "Delete", plant_path(@plant), class: 'mt-4  btn btn-secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-          
+          <% if @plant.user == current_user %>
+            <%= link_to "Delete", plant_path(@plant), class: 'mt-4  btn btn-secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+
         </div>
     	</div>
     </div>
