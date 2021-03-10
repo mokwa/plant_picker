@@ -22,7 +22,10 @@
   def show
     @message = Message.new
     @chatroom = Chatroom.find_by(plant: @plant, user: current_user)
-    @favourite = Favourite.find_by(user_id: current_user.id, plant_id: @plant.id)
+    #if the user is logged in
+    if current_user.present?
+      @favourite = Favourite.find_by(user_id: current_user.id, plant_id: @plant.id)
+    end
   end
 
   def new
