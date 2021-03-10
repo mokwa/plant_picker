@@ -1,10 +1,10 @@
 <div class="container mt-5">
-<h2>My trades</h2>
+<h2>Plants that were promised to me</h2>
   <div class="row d-flex">
 
     <% @transitions.each do |transition| %>
 
-      <% if current_user.id === transition.user_id %>
+      <% if current_user.id == transition.user_id %>
         <div class="col-12 col-md-6">
           <div class="card-product">
             <% if transition.plant.photos.attached? %>
@@ -13,18 +13,18 @@
               <%= image_tag "plant.jpg" %>
             <% end %>
             <div>
-            <div class="profile-info">
-              <p><%= transition.plant.name %> </p>
-            </div>
-            <div class="profile-actions">
-              <%= link_to "" , plant_path(transition.plant), class:"far fa-eye", style:"margin-right:10px;"%>
-            </div>
+              <div class="profile-info">
+                <h2><%= link_to transition.plant.name , plant_path(transition.plant), style:"margin-right:10px;"%></h2>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
 
     <% end %>
+
+
+
 
   </div>
 </div>

@@ -12,10 +12,10 @@
               <% end %>
               <div>
               <div class="profile-info">
-                <p><%= favourite.plant.name %> </p>
+                <h2> <%= link_to favourite.plant.name , plant_path(favourite.plant), style:"margin-right:10px;"%></h2>
               </div>
               <div class="profile-actions">
-                <%= link_to "", favourite_path(favourite), method: :delete, class:"fas fa-heart heart-green", title:'Remove plant from favourites' %>
+                <%= link_to " ", favourite_path(favourite), method: :delete, class:"fas fa-heart heart-green", title:'Remove plant from favourites' %>
               </div>
               </div>
             </div>

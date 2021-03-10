@@ -1,6 +1,13 @@
 // Specific CSS for your home-page
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Mono&display=swap');
 
+body{
+  background-color: white;
+}
+
+h1, h2, h3 {
+  color: #305252
+}
 .banner {
   background-size: cover;
   background-position: center;
@@ -163,7 +170,7 @@
 a:hover{
   text-decoration: none !important;
 }
-  
+
 .home-page-text {
   font-size: 35px;
   text-align: center;
