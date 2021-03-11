@@ -184,9 +184,11 @@ a:hover{
   background-color: #305252;
   margin: 50px;
   padding: 50px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.8);
 }
 
 .card-trip-home {
+  border: 3px solid white;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
