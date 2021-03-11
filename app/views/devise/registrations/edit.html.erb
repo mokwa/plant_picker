@@ -1,46 +1,67 @@
 <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-9">
+      <div class="form-login">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <div class="d-flex">
+    <%= f.input :email, required: true, autofocus: true, wrapper_html: { class: "w-50 mr-3", style: "max-width: 50%"} %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
-                required: false,
+                required: false, 
+                wrapper_html: { class: "w-50", style: "max-width: 50%" },
                 input_html: { autocomplete: "new-password" } %>
+    </div>
+    <div class="d-flex">
     <%= f.input :password_confirmation,
-                required: false,
+                required: false, 
+                wrapper_html: { class: "w-50 mr-3", style: "max-width: 50%"},
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
+                wrapper_html: { class: "w-50", style: "max-width: 50%" },
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    </div>
+   <div class="d-flex">
+    <%= f.input :first_name, required: true,
+                 wrapper_html: { class: "w-50 mr-3", style: "max-width: 50%"}%>
+    <%= f.input :last_name, required: true,
+                 wrapper_html: { class: "w-50", style: "max-width: 50%" } %>
+    </div>
 
-    <%= f.input :first_name, required: true%>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :address, required: true %>
-    <%= f.input :city, required: true %>
+    <div class="d-flex">
+    <%= f.input :address, required: true,
+                 wrapper_html: { class: "w-50 mr-3", style: "max-width: 50%"}%>
+    <%= f.input :city, required: true,
+                 wrapper_html: { class: "w-50", style: "max-width: 50%" }%>
+    </div>
+
     <%= f.input :nickname, required: true %>
     <%= f.input :avatar, as: :file %>
+
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
-
-
+   </div>
+  </div>
+ </div>
 </div>
