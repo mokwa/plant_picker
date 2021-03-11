@@ -1,5 +1,5 @@
-meta_product_name: "Product Name"
-meta_title: "plantPicker"
-meta_description: "Relevant description"
+meta_product_name: "plantPicker"
+meta_title: "plantPicker - Find plants nearby"
+meta_description: "Do you love plants? plant Picker is a community for those who love plants and want to share or trade. Become a plantPicker you as well."
 meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
