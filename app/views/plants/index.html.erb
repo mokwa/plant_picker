@@ -12,12 +12,10 @@
       <div class="index-filter-by">
         <h3>Filter by</h3>
         <ul>
-            <li>All</li>
-            <% @types.each do |type| %>
-
-             <li id="filter"> <%= link_to type.name, fetch_plants_path(type_id: type.id), remote: true %></li>
-
-            <% end %>
+          <li> <%= link_to "All", plants_path %></li>
+          <% @types.each do |type| %>
+            <li id="filter"> <%= link_to type.name, fetch_plants_path(type_id: type.id), remote: true %></li>
+          <% end %>
         </ul>
       </div>
     </div>

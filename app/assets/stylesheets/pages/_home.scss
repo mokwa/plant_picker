@@ -11,16 +11,17 @@ h1, h2, h3 {
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 220px 0;
-  background-image: image-url("banner.jpg")
+  padding: 305px 0;
+  background-image: image-url("banner3.jpg");
+
 }
 
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: -3px 3px 4px black;;
   font-size: 40px;
-  font-family: 'PT Mono', monospace;
+
 }
 
 .banner p {

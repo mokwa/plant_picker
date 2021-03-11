@@ -1,5 +1,6 @@
 
 <% @plants.each do |plant| %>
+  <% if plant.status != "promised" && current_user != plant.user%>
   <%= link_to  plant do %>
     <div class="index-card-plant mt-4">
       <% if plant.photos.attached? %>
@@ -11,5 +12,5 @@
 
     </div>
   <% end %>
-
+<% end %>
 <% end %>
