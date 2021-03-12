@@ -53,8 +53,12 @@ h1, h2, h3 {
 .modal-button svg:hover {
   stroke: $blue;
   fill: $blue;
+  opacity: 1;
 }
  .modal-button svg {
+   opacity: 0.85;
+  stroke: $blue;
+  fill: $blue;
    cursor: pointer;
    position: absolute;
    bottom: -10px;

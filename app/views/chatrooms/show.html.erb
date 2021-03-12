@@ -1,7 +1,7 @@
 <div class="chatroom-page">
   <div class="container mt-4">
       <div class="chatroom">
-        <h3> You are talking to</h3> <h1><i><%= @chatroom.other_person(current_user).nickname %></i></h1> <h3>about  <i class="fab fa-pagelines"></i><%= @chatroom.plant.name %></h3>
+        <h3> You are talking to</h3> <h1><i><%= @chatroom.other_person(current_user).nickname %></i></h1> <h3>about  <i class="fab fa-pagelines"></i> <%= @chatroom.plant.name %></h3>
         <hr>
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
           <% @chatroom.messages.each do |message| %>
